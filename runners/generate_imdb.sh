@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 INFILE="downloaded/imdb.txt"
 BASEDIR=".."

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 #524288 for sparse, 1024 for dense
 SIZE=$1

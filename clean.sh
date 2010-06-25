@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
 rm -Rf downloaded
 rm -Rf output
