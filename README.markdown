@@ -8,6 +8,7 @@ To generate the data, clone the repository and run `generate_all.sh`. If somethi
 The setup requires
 
 * wget
+* curl
 * bash
 * lein
 * python
