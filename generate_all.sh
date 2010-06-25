@@ -9,11 +9,11 @@ mkdir output/sparse_fingerprints
 mkdir downloaded
 
 #Download data
-sh runners/download_imdb.sh
-sh runners/download_zinc.sh
+bash runners/download_imdb.sh
+bash runners/download_zinc.sh
 
 #Generate data
-sh runners/generate_imdb.sh
-sh runners/generate_lingos.sh
-sh runners/generate_fingerprints.sh 1024 output/dense_fingerprints dense.tokens
-sh runners/generate_fingerprints.sh 524288 output/sparse_fingerprints sparse.tokens
+bash runners/generate_imdb.sh
+bash runners/generate_lingos.sh
+bash runners/generate_fingerprints.sh 1024 output/dense_fingerprints dense.tokens
+bash runners/generate_fingerprints.sh 524288 output/sparse_fingerprints sparse.tokens
