@@ -6,16 +6,9 @@
    [org.openscience.cdk.io.iterator IteratingMDLReader]
    [org.openscience.cdk.smiles SmilesParser SmilesGenerator])
   (:use clojure.contrib.duck-streams)
-  (:require clojure.contrib.str-utils2)
-  (:use clj-todo.todo))
+  (:require clojure.contrib.str-utils2))
 
 (defn read-sdf-file [filename]
-  (todo
-   "I think this is a better way of writing the let statement"
-   (comment let [reader (-> filename
-			    File.
-			    FileInputStream.
-			    (IteratingMDLReader (DefaultChemObjectBuilder/getInstance)))]))
   (let [file (File. filename)
         stream (FileInputStream. file)
         reader (IteratingMDLReader. stream 
@@ -46,5 +39,4 @@
    outputfile
    (apply str (map lingo (read-sdf-file inputfile)))))
 
-(comment -main "../../data/lingo/zinc/headed", "test.fingerprints")
 
