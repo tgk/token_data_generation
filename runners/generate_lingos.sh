@@ -5,8 +5,7 @@ mkdir -p ${OUTDIR}
 
 MAXQ=4
 
-# was 29
-for i in {0..1}; do
+for i in {0..29}; do
     INFILE="downloaded/10_p0.${i}.sdf"
     UNSPLITTED="${OUTDIR}/unsplitted.${i}.pseudosmiles"
     
