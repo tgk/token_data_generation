@@ -4,7 +4,7 @@ INFILE="downloaded/imdb.txt"
 BASEDIR=".."
 OUTDIR="output/imdb"
 
-mkdir ${OUTDIR}
+mkdir -p ${OUTDIR}
 
 cd python
 for q in {1..4}; do
