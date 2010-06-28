@@ -26,16 +26,13 @@
   (let [size (Integer/parseInt size)
 	fingerprinter (Fingerprinter. size)]
     (println "Using size" size "for hashing")
-    (spit 
+    (write-lines 
      outputfile
-     (str
-      (->> inputfile
-	   read-sdf-file
-	   (map (partial fingerprint fingerprinter))
-	   (map fingerprint-string)
-	   (interpose "\n")
-	   (apply str))
-      "\n"))))
+     (->> inputfile
+	  read-sdf-file
+	  (map (partial fingerprint fingerprinter))
+	  (map fingerprint-string)))
+    (append-spit outputfile "\n")))
 
 (defn different-sizes [max-i inputfile]
   (let [molecule (first (read-sdf-file inputfile))
