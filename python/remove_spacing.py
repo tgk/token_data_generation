@@ -11,5 +11,6 @@ for line in open(filename):
     ids = uniqueGrams.get_uids_from_grams(tokens)
     ids = map(int, ids)
     ids.sort()
+    ids = map(str, ids)
     print ",".join(ids)
 
