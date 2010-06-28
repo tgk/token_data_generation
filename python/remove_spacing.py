@@ -9,6 +9,7 @@ for line in open(filename):
     line = line.rstrip()
     tokens = line.split(",")
     ids = uniqueGrams.get_uids_from_grams(tokens)
-    ids = map(str, ids)
+    ids = map(int, ids)
+    ids.sort()
     print ",".join(ids)
 
