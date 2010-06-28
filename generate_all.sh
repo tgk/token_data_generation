@@ -15,5 +15,5 @@ bash runners/download_zinc.sh
 #Generate data
 bash runners/generate_imdb.sh
 bash runners/generate_lingos.sh
-bash runners/generate_fingerprints.sh 1024 output/dense_fingerprints dense.tokens
-bash runners/generate_fingerprints.sh 524288 output/sparse_fingerprints sparse.tokens
+bash runners/generate_dense_fingerprints.sh 1024 output/dense_fingerprints dense.tokens
+bash runners/generate_fingerprints.sh output/sparse_fingerprints sparse.tokens

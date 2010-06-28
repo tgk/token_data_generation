@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-OUTDIR=$1
-OUTNAME=$2
+#524288 for sparse, 1024 for dense
+SIZE=$1
+OUTDIR=$2
+OUTNAME=$3
 
 mkdir -p ${OUTDIR}
 
@@ -13,12 +15,13 @@ for i in {0..29}; do
     echo $RAW
 
     echo "Generating fingerprints"
-    cd java
-    mkdir bin
-    javac -cp .:../downloaded/cdk-1.2.5.jar -sourcepath . -d bin Fingerprinter.java
-    java -cp bin:../downloaded/cdk-1.2.5.jar Fingerprinter ../${INFILE} > ../${RAW}
-
-    cd ..
+    cd clojure/extract-sparse-fingerprints
+    lein deps
+    time lein run \
+	${SIZE} \
+	../../${INFILE} \
+	../../${RAW}
+    cd ../..
     echo "done"
 done
 
@@ -32,4 +35,4 @@ cd python && \
 cd ..
 echo "done"
 
-#rm ${OUTDIR}/raw*
+rm ${OUTDIR}/raw*
