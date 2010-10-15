@@ -4,14 +4,11 @@ OUTDIR="output/mayb4k_lingo"
 mkdir -p ${OUTDIR}
 
 INFILE="downloaded/mayb4k.gsm"
-UNSPLITTET="${OUTDIR}/unsplitted"
+UNSPLITTED="${OUTDIR}/unsplitted"
 
 cd clojure/extract-smiles
 lein deps
-time lein run \
-    core handle-SMILES-file \
-    ../../${INFILE} \
-    ../../${UNSPLITTED}
+lein run core handle-SMILES-file ../../${INFILE} ../../${UNSPLITTED}
 cd ../..
 echo "done"
 

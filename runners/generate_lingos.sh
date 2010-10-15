@@ -7,7 +7,7 @@ MAXQ=4
 
 for i in {0..29}; do
     INFILE="downloaded/10_p0.${i}.sdf"
-    UNSPLITTED="${OUTDIR}/unsplitted.${i}.pseudosmiles"
+    UNSPLITTED="${OUTDIR}/unsplitted.${i}"
     
     echo $INFILE
     echo $UNSPLITTED
@@ -15,14 +15,20 @@ for i in {0..29}; do
     echo "Generating LINGO strings"
     cd clojure/extract-smiles
     lein deps
-    time lein run \
+    time lein run core generate-SMILES \
 	../../${INFILE} \
-	../../${UNSPLITTED}
+	../../${UNSPLITTED}.smiles
+    time lein run core handle-SMILES-file \
+	../../${UNSPLITTED}.smiles \
+	../../${UNSPLITTED}.pseudosmiles
+
     cd ../..
     echo "done"
 done
 
+cat ${OUTDIR}/unsplitted.*.smiles > ${OUTDIR}/unsplitted.smiles
 cat ${OUTDIR}/unsplitted.*.pseudosmiles > ${OUTDIR}/unsplitted.pseudosmiles
+rm ${OUTDIR}/unsplitted.*.smiles
 rm ${OUTDIR}/unsplitted.*.pseudosmiles
 
 cd python
